@@ -1,0 +1,149 @@
+:root {
+    --bg-dark: #050a10;      /* Negro azulado muy profundo */
+    --card-bg: #0d1624;      /* Azul marino oscuro para tarjetas */
+    --accent-blue: #3b82f6;  /* Azul brillante y elegante */
+    --text-main: #ffffff;
+    --text-dim: #cbd5e1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow: hidden; /* Mantiene todo en una sola pantalla */
+}
+
+.main-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10%;
+    background: radial-gradient(circle at top right, #0f172a 0%, #050a10 50%);
+}
+
+/* Navegación */
+nav {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span { color: var(--accent-blue); }
+
+.btn-contact {
+    text-decoration: none;
+    color: var(--text-main);
+    border: 1px solid var(--accent-blue);
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: 0.3s ease;
+}
+
+.btn-contact:hover {
+    background: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Contenido Principal */
+.content {
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center;
+    gap: 5rem;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.overline {
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.tagline {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: justify; /* Justificado */
+    line-height: 1.7;
+}
+
+.btn-main {
+    align-self: flex-start;
+    background: var(--accent-blue);
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* Tarjetas */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 2px solid var(--accent-blue);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateX(10px);
+    background: #121d2f;
+}
+
+.feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+}
+
+.justify {
+    text-align: justify; /* Justificado */
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsivo para tablets/móvil */
+@media (max-width: 900px) {
+    body, html { overflow-y: auto; height: auto; }
+    .main-wrapper { height: auto; padding-bottom: 4rem; }
+    .content { grid-template-columns: 1fr; gap: 3rem; }
+}
