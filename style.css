@@ -65,11 +65,23 @@ nav {
     display: none; 
     padding-top: 2rem;
     padding-bottom: 5rem;
+    scroll-margin-top: 12vh;
 }
 
-#home:target, .page-section:target { display: block !important; }
-#home { display: block; } 
-#home:has(~ #perfil:target), #home:has(~ #formacion:target), #home:has(~ #contacto:target) { display: none; }
+/* 1. Mostrar la sección activa */
+#home:target, #perfil:target, #formacion:target, #competencias:target, #contacto:target { 
+    display: block !important; 
+}
+
+/* 2. OCULTAR EL HOME si hay cualquier otra sección activa */
+#home:has(~ #perfil:target), 
+#home:has(~ #formacion:target), 
+#home:has(~ #competencias:target), 
+#home:has(~ #contacto:target) { 
+    display: none !important; 
+}
+
+#home { display: block; } /* Estado inicial */
 
 /* DISEÑO HOME */
 .content-grid {
