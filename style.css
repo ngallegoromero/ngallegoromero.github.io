@@ -441,26 +441,103 @@ nav {
     margin-top: 2rem;
 }
 
-/* Ajuste para que en tablets o móviles se vea bien */
-@media (max-width: 1100px) {
-    .skills-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columnas en pantallas medianas */
+/* --- REINICIO DE DISEÑO PARA MÓVIL --- */
+@media (max-width: 768px) {
+    
+    /* 1. Forzamos que el contenedor principal no tenga márgenes gigantes */
+    .about-container {
+        width: 95% !important;
+        padding: 0 10px !important;
+        margin: 0 auto !important;
+    }
+
+    /* 2. EL MENÚ: Lo hacemos más compacto para que no se amontone */
+    nav {
+        padding: 0 10px !important;
+    }
+    
+    .nav-links {
+        gap: 5px !important; /* Espacio mínimo entre enlaces */
+    }
+
+    .link-nav {
+        font-size: 0.7rem !important;
+        padding: 5px !important;
+    }
+
+    .btn-contact {
+        padding: 6px 10px !important;
+        font-size: 0.7rem !important;
+        margin-left: 5px !important;
+    }
+
+    /* 3. COLUMNAS: La clave del error. Forzamos que todo sea una columna */
+    /* Añadimos todas las clases que puedan estar dividiendo la pantalla */
+    .degree-split-content, 
+    .formation-secondary-row, 
+    .about-content-layout,
+    .skills-grid,
+    .formation-grid-main {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important; 
+        width: 100% !important;
+    }
+
+    /* 4. RECUADROS: Evitamos que se vean aplastados */
+    .formation-grid-main, .formation-card, .info-block {
+        padding: 1.2rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important; /* Crucial para que el padding no sume ancho */
+    }
+
+    /* 5. TÍTULOS Y TEXTOS */
+    .display-title {
+        font-size: 1.8rem !important; /* Más pequeño para que no rompa la pantalla */
+        word-wrap: break-word;
+    }
+
+    .main-degree-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    /* Ajuste de las etiquetas de competencias para que no se corten */
+    .tag-list-item {
+        width: 100% !important;
+        box-sizing: border-box;
+        font-size: 0.8rem !important;
+    }
+
+    /* Ocultamos elementos que puedan estar empujando el diseño hacia afuera */
+    body {
+        overflow-x: hidden !important;
+        position: relative;
     }
 }
 
-@media (max-width: 700px) {
-    .skills-grid {
-        grid-template-columns: 1fr; /* 1 columna en móviles */
+/* --- TODO LO QUE ESCRIBAS AQUÍ DENTRO SOLO AFECTARÁ AL MÓVIL --- */
+@media (max-width: 480px) {
+
+    /* Ejemplo: Si quieres que el título sea más pequeño solo en móvil */
+    .display-title {
+        font-size: 1.8rem !important;
+        text-align: center;
     }
+
+    /* Ejemplo: Si quieres que los recuadros no tengan tanto margen */
+    .formation-grid-main {
+        padding: 1rem !important;
+        margin: 10px 0 !important;
+    }
+
+    /* Aquí puedes cambiar colores, tamaños o esconder cosas */
 }
 
-/* Reutilizamos el estilo de tus items pero con un toque extra */
-.skills-grid .tag-list-item {
-    background: rgba(59, 130, 246, 0.08);
-    transition: 0.3s ease;
-}
-
-.skills-grid .formation-grid-main:hover {
-    border-color: var(--blue);
-    transform: translateY(-5px); /* Pequeña animación al pasar el ratón */
+@media (max-width: 480px) {
+    .formation-grid-main {
+        background-color: #f0f8ff !important; /* Un azul muy clarito solo en móvil */
+    }
 }
